@@ -1,0 +1,193 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #1a202c;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.app {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), inset 0 0 80px #e2e8f0;
+  padding: 3rem 4rem;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.app:hover {
+  box-shadow: 0 8px 60px rgba(102, 126, 234, 0.7), inset 0 0 100px #c3dafe;
+}
+
+/* Heading */
+h1 {
+  font-weight: 900;
+  font-size: 3rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #4c51bf;
+  margin-bottom: 2.5rem;
+  user-select: none;
+  text-shadow: 2px 2px 5px rgba(120, 120, 250, 0.3);
+}
+
+/* Guest List Table */
+.guest-list {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1.25rem;
+}
+
+.guest-list thead th {
+  padding-bottom: 0.5rem;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.guest-list tbody tr {
+  background: #f9fafb;
+  border-radius: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.25s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.guest-list tbody tr:hover {
+  background-color: #ede9fe;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15),
+    0 4px 10px rgba(74, 85, 235, 0.1);
+}
+
+.guest-list tbody tr.selected {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5),
+    0 6px 20px rgba(74, 85, 235, 0.4);
+}
+
+.guest-list tbody tr.selected td {
+  color: #fff;
+}
+
+.guest-list td {
+  padding: 1rem 1.5rem;
+  font-size: 1.125rem;
+  user-select: none;
+}
+
+/* Focus outline for accessibility */
+.guest-list tbody tr:focus-visible {
+  outline: 3px solid #667eea;
+  outline-offset: 3px;
+  background-color: #dbeafe;
+  box-shadow: 0 0 10px #667eea;
+}
+
+/* Guest Details */
+.guest-details {
+  margin-top: 3rem;
+  background: #f3f4f6;
+  border-radius: 1.5rem;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), inset 0 0 80px #dbeafe;
+  color: #1a202c;
+  animation: fadeIn 0.6s ease forwards;
+  user-select: none;
+}
+
+.guest-details h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #4c51bf;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 1px 4px rgba(120, 120, 250, 0.25);
+}
+
+.guest-details p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #374151;
+}
+
+.guest-details strong {
+  color: #555;
+}
+
+/* Back button */
+.guest-details button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  color: white;
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+  transition: all 0.3s ease;
+  user-select: none;
+  margin-top: 2rem;
+}
+
+.guest-details button:hover {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+  box-shadow: 0 12px 28px rgba(90, 103, 216, 0.7);
+  transform: translateY(-3px);
+}
+
+/* Fade in animation for details */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app {
+    padding: 2rem 1.5rem;
+  }
+
+  .guest-list td {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .guest-details {
+    padding: 2rem;
+  }
+}
